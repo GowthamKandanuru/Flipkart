@@ -26,4 +26,9 @@ public class LoginPageaction {
 		l.login.click(); 
 	}
 	
+	public void close()
+	{
+		driver.close();
+	}
+	
 }

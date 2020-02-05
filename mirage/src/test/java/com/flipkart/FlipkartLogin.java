@@ -44,6 +44,10 @@ public class FlipkartLogin {
 			}
 			}
 		}*/
-		
+		}
+	@AfterTest
+	public void closeBrowser()
+	{
+		lp.close();
 	}
 }
