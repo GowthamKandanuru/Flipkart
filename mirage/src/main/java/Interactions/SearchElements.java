@@ -1,5 +1,7 @@
 package Interactions;
 
+import java.util.List;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,6 +17,7 @@ public class SearchElements {
 	WebDriver driver;
 	PropertyFile prop;
 	Actions a;
+	List<String> s;
 
 	public SearchElements() {
 		prop = new PropertyFile();
@@ -28,7 +31,7 @@ public class SearchElements {
 		driver.get(prop.getUrl());
 		l.username.sendKeys(prop.getUser());
 		l.password.sendKeys(prop.getPass());
-		l.login.click(); 
+		l.login.click();
 	}
 	
 	public void logout() throws Throwable
@@ -43,8 +46,14 @@ public class SearchElements {
 	public void search() throws Throwable
 	{
 		SearchBox box = PageFactory.initElements(driver,SearchBox.class);
-		//box.searchbox.sendKeys("hello");
-		box.searchbox.sendKeys(ExcelUtils.getData(prop.getExcelPath(),prop.getSheet()));
-		box.searchbox.sendKeys(Keys.ENTER);
+		s = ExcelUtils.getData(prop.getExcelPath(),prop.getSheet());
+		for(String s1 : s)
+		{
+			System.out.println(s1);
+			box.searchbox.sendKeys(s1);
+			Thread.sleep(2000);
+			box.searchbox.clear();
+		}
+		//box.searchbox.sendKeys(Keys.ENTER);
 	}
 }
