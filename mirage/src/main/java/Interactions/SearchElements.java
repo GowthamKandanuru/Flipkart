@@ -2,11 +2,13 @@ package Interactions;
 
 import java.util.List;
 
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.*;
 
 import Config.PropertyFile;
 import PageObject.*;
@@ -18,11 +20,13 @@ public class SearchElements {
 	PropertyFile prop;
 	Actions a;
 	List<String> s;
+	WebDriverWait wait;
 
 	public SearchElements() {
 		prop = new PropertyFile();
 		System.setProperty(prop.getDriver(),prop.getDriverPath());
 		driver = new FirefoxDriver();
+		wait = new WebDriverWait(driver,30);
 		}
 	
 	public void Login()
@@ -49,11 +53,25 @@ public class SearchElements {
 		s = ExcelUtils.getData(prop.getExcelPath(),prop.getSheet());
 		for(String s1 : s)
 		{
-			System.out.println(s1);
+			//System.out.println(s1);
 			box.searchbox.sendKeys(s1);
+			box.searchbox.sendKeys(Keys.ENTER);
 			Thread.sleep(2000);
+			System.out.println(wait.until(ExpectedConditions.visibilityOf(box.results)).getText());
 			box.searchbox.clear();
 		}
-		//box.searchbox.sendKeys(Keys.ENTER);
+	}
+	
+	/*public String result() throws Throwable
+	{
+		SearchBox box = PageFactory.initElements(driver,SearchBox.class);
+		box.searchbox.sendKeys(Keys.ENTER);
+		Thread.sleep(2000);
+		return box.text.getText();
+	}*/
+	
+	public void closeBrowser()
+	{
+		driver.quit();
 	}
 }

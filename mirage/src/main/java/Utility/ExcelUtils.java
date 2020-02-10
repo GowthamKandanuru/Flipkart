@@ -11,7 +11,6 @@ public class ExcelUtils {
 	static XSSFWorkbook workbook;
 	static XSSFSheet sheet;
 	static XSSFRow row;
-	static String s;
 	static List<String> words ;
 		public static List<String> getData(String path,String shname) throws Throwable
 		{
@@ -20,7 +19,6 @@ public class ExcelUtils {
 			workbook = new XSSFWorkbook(in);
 			sheet = workbook.getSheet(shname);
 			int k = sheet.getLastRowNum()-sheet.getFirstRowNum();
-			//System.out.println(k);
 			for(int i=1;i<=k;i++)
 			{
 				row = sheet.getRow(i);

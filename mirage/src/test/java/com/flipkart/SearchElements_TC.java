@@ -18,7 +18,12 @@ public class SearchElements_TC {
 	public void searchText() throws Throwable
 	{
 		se.Login();
-	//	se.logout();
 		se.search();
+	}
+	
+	@AfterTest
+	public void close()
+	{
+		se.closeBrowser();
 	}
 }
