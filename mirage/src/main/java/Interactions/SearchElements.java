@@ -56,7 +56,8 @@ public class SearchElements {
 			box.searchbox.sendKeys(s1);
 			box.searchbox.sendKeys(Keys.ENTER);
 			Thread.sleep(2000);
-			System.out.println(wait.until(ExpectedConditions.visibilityOf(box.results)).getText());
+			String result = wait.until(ExpectedConditions.visibilityOf(box.results)).getText();
+			System.out.println(result.substring(18,24));
 			box.searchbox.clear();
 		}
 	}
