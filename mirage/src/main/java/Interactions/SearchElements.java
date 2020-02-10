@@ -53,7 +53,6 @@ public class SearchElements {
 		s = ExcelUtils.getData(prop.getExcelPath(),prop.getSheet());
 		for(String s1 : s)
 		{
-			//System.out.println(s1);
 			box.searchbox.sendKeys(s1);
 			box.searchbox.sendKeys(Keys.ENTER);
 			Thread.sleep(2000);
@@ -61,14 +60,6 @@ public class SearchElements {
 			box.searchbox.clear();
 		}
 	}
-	
-	/*public String result() throws Throwable
-	{
-		SearchBox box = PageFactory.initElements(driver,SearchBox.class);
-		box.searchbox.sendKeys(Keys.ENTER);
-		Thread.sleep(2000);
-		return box.text.getText();
-	}*/
 	
 	public void closeBrowser()
 	{
