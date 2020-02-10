@@ -53,22 +53,14 @@ public class SearchElements {
 		s = ExcelUtils.getData(prop.getExcelPath(),prop.getSheet());
 		for(String s1 : s)
 		{
-			//System.out.println(s1);
 			box.searchbox.sendKeys(s1);
 			box.searchbox.sendKeys(Keys.ENTER);
 			Thread.sleep(2000);
-			System.out.println(wait.until(ExpectedConditions.visibilityOf(box.results)).getText());
+			String result = wait.until(ExpectedConditions.visibilityOf(box.results)).getText();
+			System.out.println(result.substring(18,24));
 			box.searchbox.clear();
 		}
 	}
-	
-	/*public String result() throws Throwable
-	{
-		SearchBox box = PageFactory.initElements(driver,SearchBox.class);
-		box.searchbox.sendKeys(Keys.ENTER);
-		Thread.sleep(2000);
-		return box.text.getText();
-	}*/
 	
 	public void closeBrowser()
 	{
