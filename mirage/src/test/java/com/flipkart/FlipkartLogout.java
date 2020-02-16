@@ -17,9 +17,13 @@ public class FlipkartLogout {
 	}
 	
 	@Test
-	public void logout() throws Throwable
+	public void login() throws Throwable
 	{
 		logout.Login();
+	}
+	@Test
+	public void logout() throws Throwable
+	{
 		logout.logout();
 	}
 }
