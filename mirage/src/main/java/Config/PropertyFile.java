@@ -47,5 +47,9 @@ public class PropertyFile{
 	{
 		return props.getProperty("Sheetname");
 	}
+	public String getpath()
+	{
+		return props.getProperty("filepath");
+	}
 }
 

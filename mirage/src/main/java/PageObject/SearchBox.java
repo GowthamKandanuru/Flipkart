@@ -13,4 +13,6 @@ public class SearchBox {
 	
 	@FindBy (xpath = "//div[@class='_3UEiDE']/span")
 	public WebElement results;
+	
+	
 }

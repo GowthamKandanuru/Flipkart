@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Config.PropertyFile;
 import PageObject.LoginPage;
@@ -14,6 +16,7 @@ public class LogoutPageaction {
 	WebDriver driver;
 	PropertyFile prop;
 	Actions a;
+	WebDriverWait wait;
 	
 	public LogoutPageaction()
 	{
@@ -21,6 +24,7 @@ public class LogoutPageaction {
 		System.setProperty(prop.getDriver(),prop.getDriverPath());
 		driver = new FirefoxDriver();
 		 a = new Actions(driver);
+		 wait = new WebDriverWait(driver,30);
 	}
 	
 	public void Login()
@@ -37,7 +41,6 @@ public class LogoutPageaction {
 		LogoutPage lo = PageFactory.initElements(driver,LogoutPage.class);
 		Thread.sleep(2000);
 		a.moveToElement(lo.myaccout).build().perform();
-		System.out.println(lo.logout.getText());
-		lo.logout.click();
+		wait.until(ExpectedConditions.visibilityOf(lo.logout)).click();
 	}
 }

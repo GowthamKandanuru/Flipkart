@@ -14,10 +14,15 @@ public class SearchElements_TC {
 		se = new SearchElements();
 	}
 	
-	@Test
-	public void searchText() throws Throwable
+	@Test(priority=1)
+	public void login()
 	{
 		se.Login();
+		
+	}
+	@Test(priority=2)
+	public void searchText() throws Throwable
+	{
 		se.search();
 	}
 	
