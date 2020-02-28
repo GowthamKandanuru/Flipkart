@@ -15,7 +15,7 @@ public class SearchElements_TC {
 	}
 	
 	@Test(priority=1)
-	public void login() throws Throwable
+	public void login()
 	{
 		se.Login();
 		

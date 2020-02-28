@@ -5,9 +5,9 @@
 <listener class-name="Utility.RetryListenerClass"/>
 </listeners>
 	<test name="ecommerce Site">
-		<packages>
-			<package name="com.flipkart">
-			</package>
-		</packages>
+		<classes>
+			<class name="com.flipkart.Dropdown_TC">
+			</class>
+		</classes>
 	</test>
 </suite>
