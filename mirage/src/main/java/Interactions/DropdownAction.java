@@ -51,9 +51,12 @@ public class DropdownAction {
 			box.searchbox.sendKeys(s1);
 			box.searchbox.sendKeys(Keys.ENTER);
 			wait.until(ExpectedConditions.visibilityOf(d.obj)).click();
-			js.executeScript("window.scrollBy(0,500)");
+			/*js.executeScript("window.scrollBy(0,300)");
 			select = new Select(d.dropdown);
-			select.selectByValue("1000");
+			select.selectByValue("1000");*/
+			Thread.sleep(2000);
+			js.executeScript("arguments[0].scrollIntoView();",d.nav);
+			d.nav.click();
 			break;
 			}
 		}

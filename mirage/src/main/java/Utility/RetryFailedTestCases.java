@@ -1,4 +1,4 @@
-package Utility;
+/*package Utility;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
@@ -18,4 +18,4 @@ public class RetryFailedTestCases  implements IRetryAnalyzer {
 		}
 		return false;
 	}
-}
+}*/

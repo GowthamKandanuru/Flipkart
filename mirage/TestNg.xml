@@ -1,13 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite thread-count="3" verbose="1" name="Suite" annotations="JDK" parallel="tests">
-<listeners>
-<listener class-name="Utility.RetryListenerClass"/>
-</listeners>
+<suite thread-count="1" verbose="1" name="Suite" annotations="JDK">
 	<test name="ecommerce Site">
 		<classes>
-			<class name="com.flipkart.Dropdown_TC">
-			</class>
+			<class name="com.flipkart.Dropdown_TC"/>
 		</classes>
 	</test>
 </suite>

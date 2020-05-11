@@ -14,7 +14,7 @@ public class ExcelUtils {
 	static List<String> words ;
 		public static List<String> getData(String path,String shname) throws Throwable
 		{
-			words = new ArrayList<>();
+			words = new ArrayList();
 			FileInputStream in = new FileInputStream(path);
 			workbook = new XSSFWorkbook(in);
 			sheet = workbook.getSheet(shname);
